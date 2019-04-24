@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Rss2jsonService } from '../rss2json.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: Rss2jsonService) { }
 
   ngOnInit() {
 
+  }
+
+  getData(url) {
+    this.service.fetchURL(url).subscribe();
   }
 
 }
